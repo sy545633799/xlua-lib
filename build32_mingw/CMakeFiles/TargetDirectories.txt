@@ -1,0 +1,3 @@
+G:/SYProject/Github/xlua/xlua-lib-build/build32_mingw/CMakeFiles/xlua.dir
+G:/SYProject/Github/xlua/xlua-lib-build/build32_mingw/CMakeFiles/edit_cache.dir
+G:/SYProject/Github/xlua/xlua-lib-build/build32_mingw/CMakeFiles/rebuild_cache.dir
