@@ -111,28 +111,27 @@ set (THIRDPART_SRC ${THIRDPART_SRC} ${SPROTO_SRC})
 #end sproto
 
 #begin lsocket
-
-if (WIN32 OR WIN64)
-    set ( LSOCKET_SRC
-        lsocket/win_compat.c
-        lsocket/lsocket.c
-    )
-else()
-    set ( LSOCKET_SRC
-        lsocket/async_resolver.c
-        lsocket/gai_async.c
-        lsocket/lsocket.c
-    )
-endif()
-    
-set_property(
-    SOURCE ${LSOCKET_SRC}
-    APPEND
-    PROPERTY COMPILE_DEFINITIONS
-    LUA_LIB
-)
-list(APPEND THIRDPART_INC  lsocket)
-set (THIRDPART_SRC ${THIRDPART_SRC} ${LSOCKET_SRC})
+#if (WIN32 OR WIN64)
+#    set ( LSOCKET_SRC
+#        lsocket/win_compat.c
+#        lsocket/lsocket.c
+#    )
+#else()
+#    set ( LSOCKET_SRC
+#        lsocket/async_resolver.c
+#        lsocket/gai_async.c
+#        lsocket/lsocket.c
+#    )
+#endif()
+#    
+#set_property(
+#    SOURCE ${LSOCKET_SRC}
+#    APPEND
+#    PROPERTY COMPILE_DEFINITIONS
+#    LUA_LIB
+#)
+#list(APPEND THIRDPART_INC  lsocket)
+#set (THIRDPART_SRC ${THIRDPART_SRC} ${LSOCKET_SRC})
 #end lsocket
 
 #begin proto-gen-lua
