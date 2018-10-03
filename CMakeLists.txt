@@ -243,6 +243,7 @@ source_group_by_dir(${CMAKE_CURRENT_SOURCE_DIR} LUA_LIB)
 source_group_by_dir(${CMAKE_CURRENT_SOURCE_DIR} XLUA_CORE)
 
 if (APPLE)
+#    set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -undefined dynamic_lookup")
     if (IOS)
         set(CMAKE_OSX_ARCHITECTURES "$(ARCHS_STANDARD)")
         add_library(xlua STATIC
@@ -267,6 +268,7 @@ if (APPLE)
         #set_target_properties ( xlua PROPERTIES MACOSX_RPATH TRUE )
     endif ()
 else ( )
+    
     add_library(xlua SHARED
         ${LUA_CORE}
         ${LUA_LIB}
