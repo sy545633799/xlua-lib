@@ -145,6 +145,22 @@ set (THIRDPART_SRC ${THIRDPART_SRC} ${SPROTO_SRC})
 #set (THIRDPART_SRC ${THIRDPART_SRC} ${PB_SRC})
 #end proto-gen-lua
 
+
+#begin crypt
+set ( CRYPT_SRC
+    crypt/lsha1.c
+    crypt/crypt.c
+)
+set_property(
+    SOURCE ${CRYPT_SRC}
+    APPEND
+    PROPERTY COMPILE_DEFINITIONS
+    LUA_LIB
+)
+list(APPEND THIRDPART_INC  crypt)
+set (THIRDPART_SRC ${THIRDPART_SRC} ${CRYPT_SRC})
+#end crypt
+
 if (USING_LUAJIT)
 	
     if (APPLE AND NOT IOS)
@@ -175,21 +191,21 @@ if (USING_LUAJIT)
 else ()
 	set ( LUA_IDSIZE 120 CACHE NUMBER "gives the maximum size for the description of the source." )
 
-	configure_file ( lua-5.3.4/src/luaconf.h.in ${CMAKE_CURRENT_BINARY_DIR}/luaconf.h )
+	configure_file ( lua-5.3.5/src/luaconf.h.in ${CMAKE_CURRENT_BINARY_DIR}/luaconf.h )
 
 	include_directories(
 	    ${CMAKE_SOURCE_DIR}
-		lua-5.3.4/src
+		lua-5.3.5/src
 		${CMAKE_CURRENT_BINARY_DIR}
 		${THIRDPART_INC}
 	)
 
-	set ( LUA_CORE lua-5.3.4/src/lapi.c lua-5.3.4/src/lcode.c lua-5.3.4/src/lctype.c lua-5.3.4/src/ldebug.c lua-5.3.4/src/ldo.c lua-5.3.4/src/ldump.c
-	  lua-5.3.4/src/lfunc.c lua-5.3.4/src/lgc.c lua-5.3.4/src/llex.c lua-5.3.4/src/lmem.c lua-5.3.4/src/lobject.c lua-5.3.4/src/lopcodes.c lua-5.3.4/src/lparser.c
-	  lua-5.3.4/src/lstate.c lua-5.3.4/src/lstring.c lua-5.3.4/src/ltable.c lua-5.3.4/src/ltm.c lua-5.3.4/src/lundump.c lua-5.3.4/src/lvm.c lua-5.3.4/src/lzio.c )
-	set ( LUA_LIB lua-5.3.4/src/lauxlib.c lua-5.3.4/src/lbaselib.c lua-5.3.4/src/lbitlib.c lua-5.3.4/src/lcorolib.c lua-5.3.4/src/ldblib.c
-	  lua-5.3.4/src/liolib.c lua-5.3.4/src/lmathlib.c lua-5.3.4/src/loslib.c lua-5.3.4/src/lstrlib.c lua-5.3.4/src/ltablib.c lua-5.3.4/src/linit.c
-	  lua-5.3.4/src/lutf8lib.c lua-5.3.4/src/loadlib.c )
+	set ( LUA_CORE lua-5.3.5/src/lapi.c lua-5.3.5/src/lcode.c lua-5.3.5/src/lctype.c lua-5.3.5/src/ldebug.c lua-5.3.5/src/ldo.c lua-5.3.5/src/ldump.c
+	  lua-5.3.5/src/lfunc.c lua-5.3.5/src/lgc.c lua-5.3.5/src/llex.c lua-5.3.5/src/lmem.c lua-5.3.5/src/lobject.c lua-5.3.5/src/lopcodes.c lua-5.3.5/src/lparser.c
+	  lua-5.3.5/src/lstate.c lua-5.3.5/src/lstring.c lua-5.3.5/src/ltable.c lua-5.3.5/src/ltm.c lua-5.3.5/src/lundump.c lua-5.3.5/src/lvm.c lua-5.3.5/src/lzio.c )
+	set ( LUA_LIB lua-5.3.5/src/lauxlib.c lua-5.3.5/src/lbaselib.c lua-5.3.5/src/lbitlib.c lua-5.3.5/src/lcorolib.c lua-5.3.5/src/ldblib.c
+	  lua-5.3.5/src/liolib.c lua-5.3.5/src/lmathlib.c lua-5.3.5/src/loslib.c lua-5.3.5/src/lstrlib.c lua-5.3.5/src/ltablib.c lua-5.3.5/src/linit.c
+	  lua-5.3.5/src/lutf8lib.c lua-5.3.5/src/loadlib.c )
 endif ()
 
 set ( LUA_SOCKET
