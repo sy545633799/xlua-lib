@@ -1,3 +1,0 @@
-/Users/shenyi/Project/UnityProject/xlua-lib/build_lj_v7a/CMakeFiles/rebuild_cache.dir
-/Users/shenyi/Project/UnityProject/xlua-lib/build_lj_v7a/CMakeFiles/edit_cache.dir
-/Users/shenyi/Project/UnityProject/xlua-lib/build_lj_v7a/CMakeFiles/xlua.dir
