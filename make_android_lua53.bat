@@ -1,6 +1,6 @@
 for /f %%a in ('dir /a:d /b %ANDROID_SDK%\cmake\') do set cmake_version=%%a
 set cmake_bin=D:\Program_Files\CMake\bin\cmake.exe
-set ninja_bin=D:\Program_Files\ninja\ninja.exe
+set ninja_bin=%ANDROID_SDK%\cmake\%cmake_version%\bin\ninja.exe
 
 mkdir build_v7a
 %cmake_bin% -H.\ -B.\build_v7a "-GAndroid Gradle - Ninja" -DANDROID_ABI=armeabi-v7a -DANDROID_NDK=%ANDROID_NDK% -DCMAKE_BUILD_TYPE=Relase -DCMAKE_MAKE_PROGRAM=%ninja_bin% -DCMAKE_TOOLCHAIN_FILE=.\cmake\android.windows.toolchain.cmake "-DCMAKE_CXX_FLAGS=-std=c++11 -fexceptions"
